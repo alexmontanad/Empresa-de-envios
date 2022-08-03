@@ -23,6 +23,7 @@
         <label for="fname">Descripcion:</label><br>
         <input type="text" name="descripcion" placeholder="descripcion"><br>
         <input type="submit" value="Boton">
+        gjgjg
     </form>
     <?php require 'footer.php';?>
 </body>
