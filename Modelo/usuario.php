@@ -1,5 +1,5 @@
 <?php
-include('./conexion.php');
+require_once('./conexion.php');
 
 class Usuario{
     private $usuario;
@@ -8,9 +8,17 @@ class Usuario{
     }
 
     public function crear($usuario,$contraseña,$correo,$permisos){
-        $sql="insert into cliente values(NULL,'$usuario','$contraseña','$correo',$permisos)";
+        $sql="insert into users values(NULL,'$usuario','$contraseña','$correo',$permisos)";
         $res=mysqli_query(Conexion::conectar(), $sql) or die("Error en la consulta $sql".mysqli_error($link));
-        echo "El CLIENTE SE REGISTRO CORRECTAMENTE <a href='vista_registrocliente.php'>VOLVER</a>";
     }
+
+    public function getID($usr){
+        $sql="select * from users where usuario='$usr'";
+        $res=mysqli_query(Conexion::conectar(),$sql);
+        if($reg=mysqli_fetch_assoc($res)){
+          $id=$reg['idUser'];
+        }
+     return $id;
+       }
 }
 ?>
