@@ -14,11 +14,7 @@ include('../Modelo/camion.php');
     <!-- Bootstrap CSS 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" language="Javascript" src="../JavaScript/funciones.js"></script>
     <title>GESTION DE EMPLEADOS</title>
 </head>
@@ -26,13 +22,15 @@ include('../Modelo/camion.php');
 <body onload="limpiar();">
     <!--fin DIV Prin-->
     <?php
-  //crear el objeto de la clase Empleados
+
   $envio=new Envio();
   $destinatario=new Destinatario();
   $camiones=new Camion();
   $reg=$envio->ver();
   $regcam=$camiones->ver();
      ?>
+     <main class="d-flex flex-nowrap">
+    <?php require 'navegacion_adm.php';?>
      <form name="form" action="../Controladores/envios_controlador.php" method="post">
     <div class="table table-striped">
         <table class="table table-striped table-hover id=" table_id">
@@ -50,8 +48,8 @@ include('../Modelo/camion.php');
             if($reg[$i]['camion']==NULL){                
             $regdes=$destinatario->get_destinatario_id($reg[$i]['destinatario']);
        echo "
-       <input type='text' hidden name='id' value='".$reg[$i]['idEnvio']."'></label>
-       <input type='text' hidden name='estado' value='Reparto'></label>
+       <input type='text' hidden name='id' value='".$reg[$i]['idEnvio']."'>
+       <input type='text' hidden name='estado' value='Reparto'>
        <tr>
        <td>".$reg[$i]['idEnvio']."</td>
        <td>".$regdes[0]['ciudad']."</td>
@@ -79,12 +77,8 @@ include('../Modelo/camion.php');
         </table>
     </div>
     </form>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
-    </script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="./js/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

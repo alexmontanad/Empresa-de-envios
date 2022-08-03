@@ -525,3 +525,15 @@ text-align: center;}
     margin-left: 70px;
     margin-top: 25px;
 }
+#lado{
+    text-align: center;
+    float: right;
+    width: 20%;
+    padding-bottom: 79%;
+    background-color: #F1FAEE;
+    }
+    #principal{
+        border:double;
+        border-color:burlywood;
+        height:500px;
+        }

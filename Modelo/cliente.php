@@ -26,9 +26,8 @@ class Cliente{
         return $this->cliente;
        }
 
-       public function modificar($id,$n,$a,$e,$t){
-        echo "codigo".$id;
-        $sql="update empleados set nomb_e='$n',apel_e='$a',email_e='$e',tel_e='$t' where id_e=$id";
+       public function modificar($id,$n,$a,$dep,$cdad,$dir,$cel){
+        $sql="update clientes set nombre='$n',apellido='$a',departamento='$dep',ciudad='$cdad', direccion='$dir', celular='$cel' where NIT=$id";
         $res=mysqli_query(Conexion::conectar(),$sql);
        }
        public function get_cliente_id($id){

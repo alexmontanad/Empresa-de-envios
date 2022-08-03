@@ -27,7 +27,6 @@ class Afiliado{
        }
 
        public function modificar($id,$n,$a,$e,$t){
-        echo "codigo".$id;
         $sql="update empleados set nomb_e='$n',apel_e='$a',email_e='$e',tel_e='$t' where id_e=$id";
         $res=mysqli_query(Conexion::conectar(),$sql);
        }

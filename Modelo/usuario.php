@@ -16,8 +16,9 @@ class Usuario{
       $res=mysqli_query(Conexion::conectar(),$sql);
       if($row=mysqli_fetch_array($res)){
           //creamos la variable de sesion
-        $_SESSION['usuario']=$row['usuario'];
         session_start();
+        $_SESSION['usuario']=$row['usuario'];
+        
       }
   }
   
@@ -35,6 +36,19 @@ class Usuario{
         $this->usuario[]=$reg;
       }
    return $this->usuario;
+     }
+
+     public function modificar($id,$u,$p,$c){
+      $sql="update users set usuario='$u',password='$p',correo='$c' where idUser=$id";
+      $res=mysqli_query(Conexion::conectar(),$sql);
+     }
+     public function get_cliente_id($id){
+      $sql="select * from clientes where NIT=$id";
+      $res=mysqli_query(Conexion::conectar(),$sql);
+      if($reg=mysqli_fetch_assoc($res)){
+        $this->cliente[]=$reg;
+      }
+   return $this->cliente;
      }
 
     public function getID($usr){

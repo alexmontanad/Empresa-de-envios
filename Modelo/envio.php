@@ -26,7 +26,6 @@ class Envio{
        }
 
        public function modificarestado($id,$c,$e){
-        echo "codigo".$id;
         $sql="update envios set camion=$c,estado='$e' where idEnvio=$id";
         $res=mysqli_query(Conexion::conectar(),$sql);
        }
