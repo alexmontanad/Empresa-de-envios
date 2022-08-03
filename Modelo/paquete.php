@@ -1,5 +1,5 @@
 <?php
-include('./conexion.php');
+include('../Config/conexion.php');
 
 class Paquete{
     private $paquete;

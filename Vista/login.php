@@ -1,10 +1,12 @@
-<head>   
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UFT-8">
     <link rel="stylesheet" href="interfaz.css">
-    <script type="text/javascript" language="javascript" src="../js/funciones.js"></script>    
-    <title>GESTION DE ADMINISTRADOR</title>
-  </head>
+
+    <style></style>
+</head>
   <body onload="limpiarUser() "class="body">
   <?php require 'header.php';?>
   <section class="seccion-tres">

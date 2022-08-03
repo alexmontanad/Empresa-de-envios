@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>FOODBAR</title>
     <meta charset="UFT-8">
     <link rel="stylesheet" href="interfaz.css">
 
-    <style>
-
-
-    </style>
+    <style></style>
 </head>
 
 <body class="body">

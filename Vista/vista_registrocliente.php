@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UFT-8">
     <link rel="stylesheet" href="interfaz.css">
-    <script type="text/javascript" language="javascript" src="../js/funciones.js"></script>
-    <title>GESTION DE ADMINISTRADOR</title>
+
+    <style></style>
 </head>
 
 <body class="body">
@@ -16,7 +15,7 @@
             <h1 class="titulo2_loginC"> Cliente</h1>
 
 
-            <form name="form" action="../Modelo/cliente_crear.php" method="post">
+            <form name="form" action="../Controladores/cliente_crear.php" method="post">
                 <ul class="login-nav">
                     <li class="login-nav__item active">
                         <a href="login.php">Ingresar</a>

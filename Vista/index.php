@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Word express</title>
     <meta charset="UFT-8">
     <link rel="stylesheet" href="interfaz.css">
-    <style> </style>
+
+    <style></style>
 </head>
 <?php require 'header.php';?>
 <body class="body">

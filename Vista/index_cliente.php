@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UFT-8">
+    <link rel="stylesheet" href="interfaz.css">
+
+    <style></style>
+</head>
 <?php require 'header.php';?>
 <body class="body">
    

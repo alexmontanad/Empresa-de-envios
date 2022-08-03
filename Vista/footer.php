@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head> 
+
+<head>
     <meta charset="UFT-8">
-<link rel="stylesheet" href="interfaz.css">
+    <link rel="stylesheet" href="interfaz.css">
+
+    <style></style>
+</head>
 <footer>
 <div class="sec_footer">
 
