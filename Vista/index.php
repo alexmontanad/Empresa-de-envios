@@ -1,15 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Word express</title>
+<meta charset="UFT-8">
+<link rel="stylesheet" href="interfaz.css">
+
+
+</head>
 <?php require 'header.php';?>
 <div id="main">
 
-    <img src=" https://files.merca20.com/uploads/2017/03/bigstock-Mail-delivery-99295181.jpg">
+    <<section class="seccion.dos" id="seccion.dos">
 
-    <p>
-    <h2> World Express</h2>
-    compra en tiendas de cualquier lugar de pais y ecibelo en tu casa a traves de nuestra compañia.
-    somo la nueva empresa de envios preferida de los colombianos que ofrecen sus productos con total seguridad y nuestro
-    respaldo</p>
+<div class="contenedor">
 
-    <p>    </p>
+    <div class="contenedor_seccion1">
+        
+
+    <div class="contenedor_seccion1_imagentxt">
+   <div class="division_seccion1">
+      <div class="divisio1_imagen">
+
+        <img src="images/camion.png " class="imagen_camion"  >
+      </div>
+    <div class="division1_texto">
+     
+      <div  class="secion_titulo">
+      <h1 class="titulo" > Wold Express</h1>
+    </div>
+    <div class="seccion_parrafo">
+    <p class="parrafo">compra en tiendas de cualquier lugar de pais y recibelo en tu casa a traves de nuestra compañia. somos la nueva empresa de envios preferida de los colombianos que ofrecen sus productos con total seguridad y nuestro respaldo
+     </p> 
+     <br>
+     <br>
+     <a href="#" class="boton_inicio"> INICIAR</a>  
+      </div>
+    </div>
+   </div>
+  </div>   
+ </div>
+</div>
+</section>
+ <section class="seccion-tres">
+   <div class="contenido_sec3">
+       <h1 class="titulo2"> !! EMPIEZA AHORA!!</h1>
+    
+       <p class="sec3_text">Registrate con nosotros y empieza a disfrutar de todos nuestro beneficios </p>
+       <br>
+ 
+       <a href="#" class="boton_inicio" style="align-self:flex-start ;margin-left: 500px;"> REGISTRATE</a>
+   </div>
+
+
+ </section>
 
 </div>
 <?php require 'footer.php';?>

@@ -22,7 +22,7 @@
           </ul>
               </li>
 
-        <li> <a href="afiliado.html"target="_blank" >Trabaja con nosotros</a></li>
+        <li> <a href="afiliado.html"target="_blank" >Trabaja con nosotros<img src="images/telefono.png" width="31px" height="31px" ></a></li>
         <li> <a href="afiliado.html"target="_blank" >Iniciar sesion</a></li>
         <li> <a href="afiliado.html"target="_blank" >Registrarse</a></li>
        
