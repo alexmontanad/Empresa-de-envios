@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+<?php require 'header.php';?>
     <form name="form" action="paquete_crear.php" method="post">
         <label for="fname">Peso:</label><br>
         <input type="text" name="id" placeholder="id"><br>
@@ -24,6 +24,7 @@
         <input type="text" name="descripcion" placeholder="descripcion"><br>
         <input type="submit" value="Boton">
     </form>
+    <?php require 'footer.php';?>
 </body>
 
 </html>

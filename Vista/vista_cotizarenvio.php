@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<?php require 'header.php';?>
     <div class="d-flex">
         <div class="col-lg-5 parte01">
             <div class="card">
@@ -87,6 +88,7 @@
 
         </div>
     </div>
+    <?php require 'footer.php';?>
 </body>
 
 </html>
