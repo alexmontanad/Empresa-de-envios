@@ -11,28 +11,8 @@
 
     </style>
 </head>
-
 <body>
-    <nav class="navegacion">
-        <ul class="lista1">
-            <li><a href="inicio.html"> <img src="icono.png" width="180" height="100"> </a></li>
-            <li><a href="nosotros.html" target="_blank">Nosotros</a> </li>
-            <li> <a href="cliente.html" target="_blank">Cliente</a>
-                <ul class="submenu">
-                    <li><a href="#">Cotizar envio</a></li>
-                    <li><a href="#">Rastrear pedido</a></li>
-                    <li><a href="#">cancelar pedido</a></li>
-                    <li><a href="#">Afiliacion</a></li>
-                </ul>
-            </li>
 
-            <li> <a href="afiliado.html" target="_blank">Trabaja con nosotros</a></li>
-
-        </ul>
-    </nav>
-
-
-</body>
 <div class="contenedor">
 
     <img src="https://www.ecommerce-nation.es/wp-content/uploads/2018/05/envio-gratuito-ecommerce-1000x640.jpg"
@@ -56,5 +36,3 @@
         </p>
 
     </div>
-
-</html>
