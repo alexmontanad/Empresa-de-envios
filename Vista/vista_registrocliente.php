@@ -10,7 +10,7 @@
 
 <body>
 <?php require 'header.php';?>
-    <form name="form" action="paquete_crear.php" method="post">
+    <form name="form" action="cliente_crear.php" method="post">
         <label for="fname">Nombre:</label>
         <input type="text" name="id" placeholder="Nombre"><br>
         <label for="fname">Apellido:</label>
