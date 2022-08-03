@@ -47,7 +47,7 @@
         <h1 class="titulo2"> !! EMPIEZA AHORA¡¡¡¡</h1>
         <p class="sec3_text">Registrate con nosotros y empieza a disfrutar de todos nuestro beneficios </p>
         <br>
-        <a href="" class="boton_inicio" style="align-self:flex-start ;margin-left: 500px;"> REGISTRATE</a>
+        <a href="vista_registrocliente.php" class="boton_inicio" style="align-self:flex-start ;margin-left: 500px;"> REGISTRATE</a>
     </div>
 </section>
 </body>

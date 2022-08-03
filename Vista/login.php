@@ -25,10 +25,12 @@
 		<input id="login-input-user" name="id" class="login__input" type="text" />
 		<label for="login-input-password"  style="color: black;" class="login__label">Password</label>
 		<input id="login-input-password" name="pass" class="login__input" type="password" />	
-		<button type="submit" class="boton_inicio" >Ingresar</button>
+		<input type="submit" class="boton_inicio" value=" Ingresar" onclick="">
+		
 	</form>
 		<a href="./Recuperar/Recuperar.php"  style="color: black;"class="login__forgot">Recordar contraseña</a>
 		<a href="index.php"  style="color: black;"class="login__forgot">Volver al inicio</a>
+		
 
 
         </form>

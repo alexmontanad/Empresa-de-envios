@@ -509,3 +509,19 @@ text-align: center;}
     color: rgb(249, 251, 255);
 }
 
+.sec_footer{
+
+    width: 100%;
+    background-color: #111111;
+    color: #ffffff;
+    height: 160px;
+    max-height: 188px;
+    position: absolute;
+}
+.texto_footer{
+
+    text-align: center;
+    font-size: 1.2rem;
+    margin-left: 70px;
+    margin-top: 25px;
+}

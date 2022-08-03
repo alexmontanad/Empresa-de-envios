@@ -8,21 +8,21 @@
     <title>Paquete</title>
 </head>
 
-<body>
+<body class="body">
 <?php require 'header.php';?>
     <form name="form" action="paquete_crear.php" method="post">
-        <label for="fname">Peso:</label><br>
-        <input type="text" name="id" placeholder="id"><br>
-        <input type="text" name="peso" placeholder="peso"><br>
-        <label for="fname">Dimensiones:</label><br>
-        <input type="text" name="alto" placeholder="alto">
-        <input type="text" name="ancho" placeholder="ancho">
-        <input type="text" name="profundidad" placeholder="profundidad"><br>
-        <label for="fname">Precio comercial:</label><br>
-        <input type="text" name="valor" placeholder="valor"><br>
-        <label for="fname">Descripcion:</label><br>
-        <input type="text" name="descripcion" placeholder="descripcion"><br>
-        <input type="submit" value="Boton">
+        
+        <label for="fname">Direccion:</label><br>
+        <input type="text" name="Direccion" placeholder="Direccion" class="login__input"  >
+       
+        <label for="fname">Nombre de quien recibe:</label><br>
+        <input type="text" name="Nombre_re" placeholder="Nombre_re"class="login__input"><br>
+        <label for="fname">Ciudad: </label><br>
+        <input type="text" name="ciudad" placeholder="ciudad"class="login__input"><br>
+        <label for="fname">Descripcion Adicional</label><br>
+        <input type="text" name="Descripcion" placeholder="decripcion"class="login__input"><br>
+       
+        <input type="submit" value="Boton" class="boton_inicio">
     </form>
     <?php require 'footer.php';?>
 </body>
