@@ -33,7 +33,7 @@
         <label for="fname">Descripcion:</label><br>
         <input type="text" name="descripcion" placeholder="descripcion"class="login__input"><br>
 
-        <input type="submit" value="Boton" class="boton_inicio">
+        <input type="submit" value="Generar solicitud" class="boton_inicio">
     </form>
     <?php require 'footer.php';?>
 </body>

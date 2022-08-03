@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="interfaz.css">
 
     <style></style>
+    <script type="text/javascript" language="Javascript" src="../JavaScript/funciones.js"></script>
+    
 </head>
 
 <body class="body">
@@ -15,7 +17,7 @@
             <h1 class="titulo2_loginC"> Cliente</h1>
 
 
-            <form name="form" action="../Controladores/cliente_crear.php" method="post">
+            <form name="form" action="../Controladores/cliente_controlador.php" method="post">
                 <ul class="login-nav">
                     <li class="login-nav__item active">
                         <a href="login.php">Ingresar</a>
@@ -43,7 +45,7 @@
                 <input type="text" name="correo" placeholder="Correo" class="login__input"><br>
                 <label for="fname" class="login__label">Contraseña:</label>
                 <input type="text" name="contraseña" placeholder="Contraseña" class="login__input"><br>
-                <input type="submit" value="Registrar" class="boton_inicio">
+                <input type="submit" name="accion" value="crear" class="boton_inicio">
 
             </form>
             <a href="./Recuperar/Recuperar.php" style="color: black;" class="login__forgot">Recordar contraseña</a>

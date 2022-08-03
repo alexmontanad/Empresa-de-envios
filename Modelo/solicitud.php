@@ -1,10 +1,10 @@
 <?php
 require_once('../Config/conexion.php');
 
-class Cliente{
-    private $cliente;
+class Solicitud{
+    private $solicitud;
     public function __construct(){
-        $this->cliente=array();
+        $this->solicitud=array();
     }
 
     public function crear($NIT,$nombre,$apellido,$departamento,$ciudad,$direccion,$celular,$credenciales){
@@ -17,13 +17,13 @@ class Cliente{
     }
 
     public function ver(){
-        $sql="select * from clientes";
+        $sql="select * from solicitud";
         $res=mysqli_query(Conexion::conectar(),$sql);
         //recorrer la tabla empleados y almacenarla en el vector
         while($row=mysqli_fetch_array($res)){
-          $this->cliente[]=$row;
+          $this->solicitud[]=$row;
         }
-        return $this->cliente;
+        return $this->solicitud;
        }
 
        public function modificar($id,$n,$a,$e,$t){
@@ -31,7 +31,7 @@ class Cliente{
         $sql="update empleados set nomb_e='$n',apel_e='$a',email_e='$e',tel_e='$t' where id_e=$id";
         $res=mysqli_query(Conexion::conectar(),$sql);
        }
-       public function get_cliente_id($id){
+       public function get_solicitud_id($id){
         $sql="select * from clientes where NIT=$id";
         $res=mysqli_query(Conexion::conectar(),$sql);
         if($reg=mysqli_fetch_assoc($res)){
