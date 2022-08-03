@@ -13,7 +13,7 @@
     <ul class="lista1">
         <li><a href="index.php"> <img src="icono.png" width="180" height="100"> </a></li>
         <li><a href="nosotros.html"target="_blank" >Nosotros</a> </li>
-        <li> <a href="index_cliente.html"target="_blank" >Cliente</a>
+        <li> <a href="index_cliente.php"target="_blank" >Cliente</a>
           <ul class="submenu">
                  <li><a href="vista_cotizarenvio.php">Cotizar envio</a></li>
                  <li><a href="#">Rastrear pedido</a></li>
