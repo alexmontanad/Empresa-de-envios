@@ -1,4 +1,7 @@
 <?php require 'header.php';?>
+<body class="body">
+   
+
 <div id="main">
 <img src="repartidor.png" >
     <h2>Clientes</h2>
@@ -19,4 +22,5 @@
            <button class="boton"><span></span> rastrea Envio</button>
         </p>
 </div>
+</body>
 <?php require 'footer.php';?>
