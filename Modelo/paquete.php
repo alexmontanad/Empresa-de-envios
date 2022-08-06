@@ -7,11 +7,21 @@ class Paquete{
         $this->paquete=array();
     }
 
-    public function crear($id,$peso,$alto,$ancho,$profundidad,$precio,$descripcion){
-        $sql="insert into paquete values($id,$peso,$alto,$ancho,$profundidad,$precio,'$descripcion')";
+    public function crear($peso,$alto,$ancho,$profundidad,$precio,$descripcion){
+        $sql="insert into paquete values(NULL,$peso,$alto,$ancho,$profundidad,$precio,'$descripcion')";
         $res=mysqli_query(Conexion::conectar(), $sql) or die("Error en la consulta $sql".mysqli_error($link));
-        echo "El EMPLEADO SE REGISTRO CORRECTAMENTE <a href='vista_paquete.php'>VOLVER</a>";
     }
+
+    public function crear_getID($peso,$alto,$ancho,$profundidad,$precio,$descripcion){
+      $sql="insert into paquete values(NULL,$peso,$alto,$ancho,$profundidad,$precio,'$descripcion')";
+      $res=mysqli_query(Conexion::conectar(), $sql) or die("Error en la consulta $sql".mysqli_error($link));
+      $sql="SELECT MAX(idpaquete) AS id FROM paquete";
+      $res=mysqli_query(Conexion::conectar(),$sql);
+      if($reg=mysqli_fetch_assoc($res)){
+        $id=$reg['id'];
+      }
+        return $id;
+  }
 
     public function eliminar($id){
         $sql="delete from empleados where id_e=$id";

@@ -2,13 +2,13 @@
 require_once('../Config/conexion.php');
 
 class Afiliado{
-    private $cliente;
+    private $afiliado;
     public function __construct(){
-        $this->cliente=array();
+        $this->afiliado=array();
     }
 
-    public function crear($NIT,$nombre,$apellido,$departamento,$ciudad,$direccion,$celular,$credenciales){
-        $sql="insert into clientes values($NIT,'$nombre','$apellido','$departamento','$ciudad','$direccion','$celular',$credenciales)";
+    public function crear($NIT,$nombre,$apellido,$credenciales){
+        $sql="insert into afiliado values(NULL,'$nombre','$apellido','$NIT',$credenciales)";
         $res=mysqli_query(Conexion::conectar(), $sql) or die("Error en la consulta $sql".mysqli_error($link));
     }
     public function eliminar($id){
@@ -17,13 +17,13 @@ class Afiliado{
     }
 
     public function ver(){
-        $sql="select * from empleados";
+        $sql="select * from afiliado";
         $res=mysqli_query(Conexion::conectar(),$sql);
         //recorrer la tabla empleados y almacenarla en el vector
         while($row=mysqli_fetch_array($res)){
-          $this->emple[]=$row;
+          $this->afiliado[]=$row;
         }
-        return $this->emple;
+        return $this->afiliado;
        }
 
        public function modificar($id,$n,$a,$e,$t){

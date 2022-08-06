@@ -13,6 +13,17 @@ class Destinatario{
         echo "El EMPLEADO SE REGISTRO CORRECTAMENTE <a href='vista_paquete.php'>VOLVER</a>";
     }
 
+    public function crear_getID($nom, $apellido, $ciudad, $direccion){
+      $sql="insert into destinatario values(NULL,'$nom', '$apellido', '$ciudad', '$direccion')";
+      $res=mysqli_query(Conexion::conectar(), $sql) or die("Error en la consulta $sql".mysqli_error($link));
+      $sql="SELECT MAX(idDestinatario) AS id FROM destinatario";
+      $res=mysqli_query(Conexion::conectar(),$sql);
+      if($reg=mysqli_fetch_assoc($res)){
+        $id=$reg['id'];
+      }
+        return $id;
+  }
+
     public function eliminar($id){
         $sql="delete from empleados where id_e=$id";
         $res=mysqli_query(Conexion::conectar(),$sql);

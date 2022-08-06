@@ -1,13 +1,19 @@
 <?php
 include_once('../Modelo/solicitud.php');
+include_once('../Modelo/destinatario.php');
+include_once('../Modelo/paquete.php');
+include_once('../Modelo/usuario.php');
 $accion = $_REQUEST['accion'];
 switch ($accion) {
-    case 'crear':
-        $cliente = new cliente();
-        $usuario = new usuario();
-        $usuario->crear($_REQUEST['nombre'],$_REQUEST['contraseña'],$_REQUEST['correo'],"4");
-        $user = $usuario->getID($_REQUEST['nombre']);
-        $cliente->crear($_REQUEST['cedula'], $_REQUEST['nombre'], $_REQUEST['apellido'], $_REQUEST['departamento'], $_REQUEST['ciudad'], $_REQUEST['direccion'], $_REQUEST['celular'], $user);
+    case 'Generar solicitud':
+        $user= new Usuario();
+        $cliente = $user->UsuarioAsociado('clientes',$_REQUEST['idcliente'], 'NIT');
+        $destinatario = new Destinatario();
+        $destinatario = $destinatario->crear_getID($_REQUEST['nombredes'],$_REQUEST['apedes'],$_REQUEST['ciudad'],$_REQUEST['direccion']);
+        $paquete = new Paquete();     
+        $paquete=$paquete->crear_getID($_REQUEST['peso'],$_REQUEST['alto'],$_REQUEST['ancho'],$_REQUEST['profundidad'],$_REQUEST['valor'],$_REQUEST['descripcion']);
+        $solicitud = new Solicitud();
+        $solicitud->crear($cliente,$paquete,$destinatario);
         break;
     case 'eliminar':
         $cliente = new Cliente();

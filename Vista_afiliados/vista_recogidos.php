@@ -1,7 +1,13 @@
 <?php
-include('../Modelo/solicitud.php');
-include('../Modelo/cliente.php');
+session_start();
+$varsession = $_SESSION['usuario'];
+if($varsession == null || $varsession = ''){
+    echo 'usted no tiene autorizacion';
+    die();
+}
+include('../Modelo/envio.php');
 include('../Modelo/destinatario.php');
+include('../Modelo/camion.php');
 ?>
 <!doctype html>
 <html lang="es">
@@ -14,7 +20,7 @@ include('../Modelo/destinatario.php');
     <!-- Bootstrap CSS 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" language="Javascript" src="../JavaScript/funciones.js"></script>
     <title>GESTION DE EMPLEADOS</title>
 </head>
@@ -22,55 +28,62 @@ include('../Modelo/destinatario.php');
 <body onload="limpiar();">
     <!--fin DIV Prin-->
     <?php
-  //crear el objeto de la clase Empleados
-  $solicitud=new Solicitud();
-  $cliente=new Cliente();
+
+  $envio=new Envio();
   $destinatario=new Destinatario();
-  $reg=$solicitud->ver();
+  $camiones=new Camion();
+  $reg=$envio->ver();
+  $regcam=$camiones->ver();
      ?>
-     <main class="d-flex flex-nowrap">
-    <?php require 'navegacion_adm.php';?>
-    <div class="table table-striped">
-        <table class="table table-striped table-hover id=" table_id">
+     <?php require 'navegacion_afiliado.php';?>
+     <main class="d-flex flex-nowrap flex-fill">
+    
+     <form name="form" action="../Controladores/envios_controlador.php" method="post">
+    <div class="table table-striped flex-fill">
+        <table class="table table-striped table-hover flex-fill id=" table_id">
             <thead>
                 <th>ID</th>
-                <TH>ORIGEN</TH>
                 <TH>DESTINO</TH>
-                <TH>DIRECCION ORIGEN</TH>
                 <TH>DIRECCION DESTINO</TH>
-                <TH>CLIENTE</TH>
+                <TH>CAMION</TH>
                 <TH>ACCION</TH>
                 </TR>
             </thead>
             <tbody>
                 <?php
         for($i=0;$i<count($reg);$i++){
-            $regcli=$cliente->get_cliente_id($reg[$i]['cliente']);
+            if($reg[$i]['camion']==NULL){                
             $regdes=$destinatario->get_destinatario_id($reg[$i]['destinatario']);
-       echo "<tr>
-       <td>".$reg[$i]['idSolicitud']."</td>
-       <td>".$regcli[0]['ciudad']."</td>
+       echo "
+       <input type='text' hidden name='id' value='".$reg[$i]['idEnvio']."'>
+       <input type='text' hidden name='estado' value='Reparto'>
+       <tr>
+       <td>".$reg[$i]['idEnvio']."</td>
        <td>".$regdes[0]['ciudad']."</td>
-       <td>".$regcli[0]['direccion']."</td>
        <td>".$regdes[0]['direccion']."</td>
-       <td>".$regcli[0]['nombre']." ".$regcli[0]['apellido']."</td>";
+       <td><select name='camion'>
+       <option value='NULL'>NULL</option>}";
+       for($j=0;$j<count($regcam);$j++){
+        echo "<option value=".$regcam[$j]['idCamion'].">".$regcam[$j]['placa']."</option>";
+       }    
+     "</select></td>";
        ?>
                 <td align='center'>
-                    <button class="btn btn-warning"
-                        onclick=window.location="../Controladores/envios_controlador.php?accion=crear&paquete=<?php echo $reg[$i]['paquete'];?>&cliente=<?php echo $reg[$i]['cliente'];?>&destinatario=<?php echo $reg[$i]['destinatario'];?>&estado=Recogido">
-                        <span class="material-icons">Generar envio</span>
-                    </button>
-                    <button class="btn btn-danger">
+                    <input type="submit" class="btn btn-warning" name="accion" value="Asignar camion">
+                    <!--<button class="btn btn-danger"
+                        >
                         <span class="material-icons">Eliminar solicitud</span>
-                    </button>
+                    </button>-->
                 </td>
                 </tr>
                 <?php
+        }
        }
         ?>
             </tbody>
         </table>
     </div>
+    </form>
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="./js/jquery-3.6.0.min.js"></script>
 </body>

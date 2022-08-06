@@ -24,7 +24,7 @@ $reguser=$usr->get_user_id($reg[0]['credenciales']);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <title>GESTION DE EMPLEADOS</title>
+    <title>EDITAR CLIENTE</title>
 </head>
 
 <body onload="limpiar();">

@@ -20,7 +20,7 @@ include('../Modelo/cliente.php');
 -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" language="Javascript" src="../JavaScript/funciones.js"></script>
-    <title>GESTION DE CLIENTES</title>
+    <title>GESTION DE SOLICITUDES</title>
 </head>
 
 <body onload="limpiar();">
@@ -30,9 +30,7 @@ include('../Modelo/cliente.php');
         <div class="conatiner">
             <div class="card">
                 <div class="card-header bg-info">
-                    <h3 class="text-white text-center">GESTION DE CLIENTES</h3>
-                    <a class="btn btn-primary" href="../Controladores/controlador_users.php?accion=cerrar"
-                        role="button">Salir</a>
+                    <h3 class="text-white text-center">GESTION DE SOLICITUDES</h3>
                 </div>
             </div>
             <div class="card-body">

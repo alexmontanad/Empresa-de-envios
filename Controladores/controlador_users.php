@@ -6,9 +6,25 @@ switch ($accion) {
         $ver = new Usuario();
         $user=$_REQUEST['user'];
         $pass=$_REQUEST['pass'];
-        $ver->validar($user,$pass);
-        header("Location: ../Vista/admin_clientes.php");
-        exit();
+        $permisos=$ver->validar($user,$pass);
+        switch($permisos){
+            case 1:
+                header("Location: ../Vista_administrador/admin_empleados.php");
+                exit();
+            break;
+            case 2:
+                header("Location: ../Vista_afiliados/vista_solicitudes.php");
+                exit();
+            break;
+            case 3:
+                header("Location: ../Vista_conductor/vista_solicitudes.php");
+                exit();
+            break; 
+            case 4:
+                header("Location: ../Vista/index.php");
+                exit();
+            break;
+        }
         break;
     case 'cerrar':
         session_start();

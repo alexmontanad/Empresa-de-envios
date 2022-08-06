@@ -7,7 +7,7 @@
 
     <style></style>
     <script type="text/javascript" language="Javascript" src="../JavaScript/funciones.js"></script>
-    
+
 </head>
 
 <body class="body">
@@ -33,16 +33,23 @@
                 <input type="text" name="apellido" placeholder="Apellido" class="login__input"><br>
                 <label for="fname" class="login__label">Cedula:</label>
                 <input type="text" name="cedula" placeholder="Cedula" class="login__input"><br>
-                <label for="fname" class="login__label">Departamento:</label>
-                <input type="text" name="departamento" placeholder="Departamento" class="login__input"><br>
                 <label for="fname" class="login__label">Ciudad:</label>
-                <input type="text" name="ciudad" placeholder="Ciudad" class="login__input"><br>
+                <select name="ciudad" class="login__input">
+                    <option value="Bogota">Bogota</option>
+                    <option value="Medellin">Medellin</option>
+                    <option value="Cartagena">Cartagena</option>
+                    <option value="Cali">Cali</option>
+                    <option value="Santa Marta">Santa Marta</option>
+                    <option value="Barranquilla">Barranquilla</option>
+                </select>
                 <label for="fname" class="login__label">Direccion:</label>
-                <input type="text" name="direccion" placeholder="Direccion" class="login__input" <br>
+                <input type="text" name="direccion" placeholder="Direccion" class="login__input"><br>
                 <label for="fname" class="login__label">Celular:</label>
                 <input type="text" name="celular" placeholder="Celular" class="login__input"><br>
                 <label for="fname" class="login__label">Correo:</label>
-                <input type="text" name="correo" placeholder="Correo" class="login__input"><br>
+                <input type="email" name="correo" placeholder="Correo" class="login__input"><br>
+                <label for="fname" class="login__label">Usuario:</label>
+                <input type="text" name="usuario" placeholder="Usuario" class="login__input"><br>
                 <label for="fname" class="login__label">Contraseña:</label>
                 <input type="text" name="contraseña" placeholder="Contraseña" class="login__input"><br>
                 <input type="submit" name="accion" value="crear" class="boton_inicio">

@@ -7,12 +7,12 @@ class Solicitud{
         $this->solicitud=array();
     }
 
-    public function crear($NIT,$nombre,$apellido,$departamento,$ciudad,$direccion,$celular,$credenciales){
-        $sql="insert into clientes values($NIT,'$nombre','$apellido','$departamento','$ciudad','$direccion','$celular',$credenciales)";
+    public function crear($cliente, $paquete, $destinatario){
+        $sql="insert into solicitud values(NULL,$cliente, $paquete, $destinatario)";
         $res=mysqli_query(Conexion::conectar(), $sql) or die("Error en la consulta $sql".mysqli_error($link));
     }
     public function eliminar($id){
-        $sql="delete from clientes where NIT=$id";
+        $sql="delete from solicitud where idSolicitud=$id";
         $res=mysqli_query(Conexion::conectar(),$sql);
     }
 

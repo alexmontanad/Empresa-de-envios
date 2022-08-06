@@ -2,13 +2,13 @@
 require_once('../Config/conexion.php');
 
 class Conductor{
-    private $cliente;
+    private $conductor;
     public function __construct(){
-        $this->cliente=array();
+        $this->conductor=array();
     }
 
-    public function crear($NIT,$nombre,$apellido,$departamento,$ciudad,$direccion,$celular,$credenciales){
-        $sql="insert into clientes values($NIT,'$nombre','$apellido','$departamento','$ciudad','$direccion','$celular',$credenciales)";
+    public function crear($NIT,$nombre,$apellido,$credenciales){
+        $sql="insert into conductor values(NULL,'$nombre','$apellido','$NIT',NULL,$credenciales)";
         $res=mysqli_query(Conexion::conectar(), $sql) or die("Error en la consulta $sql".mysqli_error($link));
     }
     public function eliminar($id){
@@ -17,14 +17,13 @@ class Conductor{
     }
 
     public function ver(){
-        $sql="select * from empleados";
-        $res=mysqli_query(Conexion::conectar(),$sql);
-        //recorrer la tabla empleados y almacenarla en el vector
-        while($row=mysqli_fetch_array($res)){
-          $this->emple[]=$row;
-        }
-        return $this->emple;
-       }
+      $sql="select * from conductor";
+      $res=mysqli_query(Conexion::conectar(),$sql);
+      while($row=mysqli_fetch_array($res)){
+        $this->conductor[]=$row;
+      }
+      return $this->conductor;
+     }
 
        public function modificar($id,$n,$a,$e,$t){
         $sql="update empleados set nomb_e='$n',apel_e='$a',email_e='$e',tel_e='$t' where id_e=$id";

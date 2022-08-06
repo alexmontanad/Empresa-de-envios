@@ -17,16 +17,40 @@ class Usuario{
       if($row=mysqli_fetch_array($res)){
           //creamos la variable de sesion
         session_start();
-        $_SESSION['usuario']=$row['usuario'];
-        
+        $_SESSION['usuario']=$row['idUser'];
+        $_SESSION['permisos']=$row['permisos'];
+        $permisos = $_SESSION['permisos'];
       }
+
+      return $permisos;
   }
   
+   }
+
+   public function UsuarioAsociado($tabla, $idUser, $name){
+    $sql="select * from $tabla where credenciales=$idUser";
+    $res=mysqli_query(Conexion::conectar(), $sql);
+    if($reg=mysqli_fetch_assoc($res)){
+      $id=$reg[$name];
+    }
+      return $id;
+    
    }
 
     public function crear($usuario,$password,$correo,$permisos){
         $sql="insert into users values(NULL,'$usuario','$password','$correo',$permisos)";
         $res=mysqli_query(Conexion::conectar(), $sql) or die("Error en la consulta $sql".mysqli_error($link));
+    }
+
+    public function crear_getID($usuario,$password,$correo,$permisos){
+      $sql="insert into users values(NULL,'$usuario','$password','$correo',$permisos)";
+      $res=mysqli_query(Conexion::conectar(), $sql) or die("Error en la consulta $sql".mysqli_error($link));
+      $sql="SELECT MAX(idUser) AS id FROM users";
+      $res=mysqli_query(Conexion::conectar(),$sql);
+      if($reg=mysqli_fetch_assoc($res)){
+        $id=$reg['id'];
+      }
+        return $id;
     }
 
     public function get_user_id($id){
