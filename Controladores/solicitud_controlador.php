@@ -9,7 +9,7 @@ switch ($accion) {
         $user= new Usuario();
         $cliente = $user->UsuarioAsociado('clientes',$_REQUEST['idcliente'], 'NIT');
         $destinatario = new Destinatario();
-        $destinatario = $destinatario->crear_getID($_REQUEST['nombredes'],$_REQUEST['apedes'],$_REQUEST['ciudad'],$_REQUEST['direccion']);
+        $destinatario = $destinatario->crear_getID($_REQUEST['nombredes'],$_REQUEST['apedes'],$_REQUEST['ciudad'],$_REQUEST['direccion'],$_REQUEST['celular']);
         $paquete = new Paquete();     
         $paquete=$paquete->crear_getID($_REQUEST['peso'],$_REQUEST['alto'],$_REQUEST['ancho'],$_REQUEST['profundidad'],$_REQUEST['valor'],$_REQUEST['descripcion']);
         $solicitud = new Solicitud();

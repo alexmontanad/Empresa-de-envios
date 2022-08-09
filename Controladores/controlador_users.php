@@ -13,11 +13,11 @@ switch ($accion) {
                 exit();
             break;
             case 2:
-                header("Location: ../Vista_afiliados/vista_solicitudes.php");
+                header("Location: ../Vista_conductor/vista_camion.php");
                 exit();
             break;
             case 3:
-                header("Location: ../Vista_conductor/vista_solicitudes.php");
+                header("Location: ../Vista_afiliados/vista_solicitudes.php");
                 exit();
             break; 
             case 4:

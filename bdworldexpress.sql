@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-08-2022 a las 19:45:22
+-- Tiempo de generación: 09-08-2022 a las 04:14:16
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -35,6 +35,13 @@ CREATE TABLE `afiliado` (
   `credenciales` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `afiliado`
+--
+
+INSERT INTO `afiliado` (`idAfiliado`, `nombre`, `apellido`, `nit`, `credenciales`) VALUES
+(1, 'Maria Isabel', 'Diaz Serna', '39717699', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +51,7 @@ CREATE TABLE `afiliado` (
 CREATE TABLE `camion` (
   `idCamion` int(50) NOT NULL,
   `placa` varchar(50) NOT NULL,
+  `encargado` int(11) DEFAULT NULL,
   `coordenada1` varchar(50) NOT NULL,
   `coordenada2` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -52,9 +60,11 @@ CREATE TABLE `camion` (
 -- Volcado de datos para la tabla `camion`
 --
 
-INSERT INTO `camion` (`idCamion`, `placa`, `coordenada1`, `coordenada2`) VALUES
-(1, 'XCQ126', '1', '1'),
-(2, 'XCQ125', '1', '1');
+INSERT INTO `camion` (`idCamion`, `placa`, `encargado`, `coordenada1`, `coordenada2`) VALUES
+(1, 'CVF123', NULL, '1', '1'),
+(2, 'YOU13', 2, '1', '1'),
+(3, 'XMC459', 3, '1', '1'),
+(4, 'OPI125', 1, '1', '1');
 
 -- --------------------------------------------------------
 
@@ -66,7 +76,6 @@ CREATE TABLE `clientes` (
   `NIT` int(10) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
-  `departamento` varchar(50) NOT NULL,
   `ciudad` varchar(50) NOT NULL,
   `direccion` varchar(50) NOT NULL,
   `celular` varchar(50) NOT NULL,
@@ -77,8 +86,9 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`NIT`, `nombre`, `apellido`, `departamento`, `ciudad`, `direccion`, `celular`, `credenciales`) VALUES
-(1000353959, 'alex', 'montaña', 'Cundinamarca', 'Bogota', 'AV 14 # 54 SUR', '7391964', 23);
+INSERT INTO `clientes` (`NIT`, `nombre`, `apellido`, `ciudad`, `direccion`, `celular`, `credenciales`) VALUES
+(1, 'Cliente1', 'Cliente1', 'Bogota', 'AV 14 # 54 SUR', '7391964', 10),
+(1000353959, 'Alex', 'Montaña', 'Bogota', 'Calle 48 Q SUR #5C - 59', '3502357524', 1);
 
 -- --------------------------------------------------------
 
@@ -91,9 +101,18 @@ CREATE TABLE `conductor` (
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `nit` varchar(50) NOT NULL,
-  `camion` int(50) NOT NULL,
+  `camion` int(50) DEFAULT NULL,
   `credenciales` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `conductor`
+--
+
+INSERT INTO `conductor` (`idConductor`, `nombre`, `apellido`, `nit`, `camion`, `credenciales`) VALUES
+(1, 'Juan Frnaciso', 'Montaña Bravo', '80362833', 4, 7),
+(2, 'Juan', 'Saenz', '2739456', 2, 8),
+(3, 'Julian David', 'Gomez', '27195645', 3, 9);
 
 -- --------------------------------------------------------
 
@@ -106,15 +125,29 @@ CREATE TABLE `destinatario` (
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `ciudad` varchar(50) NOT NULL,
-  `direccion` varchar(50) NOT NULL
+  `direccion` varchar(50) NOT NULL,
+  `celular` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `destinatario`
 --
 
-INSERT INTO `destinatario` (`idDestinatario`, `nombre`, `apellido`, `ciudad`, `direccion`) VALUES
-(1, 'Juan', 'Saenz', 'Bogota', 'Calle 18');
+INSERT INTO `destinatario` (`idDestinatario`, `nombre`, `apellido`, `ciudad`, `direccion`, `celular`) VALUES
+(1, 'Deiver Alexander', 'Diaz', 'Bogota', 'Calle 48 Q SUR #5C - 59', '0'),
+(2, 'Deiver Alexander', 'Diaz', 'Bogota', 'Calle 48 Q SUR #5C - 59', '0'),
+(3, 'Kevin', 'Rodriguez', 'Medellin', 'Tranversal 14C # 48', '0'),
+(4, 'Erika', 'Martinez', 'Medellin', 'AV 14', '3533887578'),
+(5, 'Erika', 'Martinez', 'Bogota', 'AV 14', '0'),
+(6, 'Erika', 'Martinez', 'Bogota', 'AV 14', '0'),
+(7, 'Erika', 'Martinez', 'Barranquilla', 'AV 14', '0'),
+(8, 'Alex', 'xd', 'Bogota', 'CALLE 48 Q SUR #5C - 59', '3256213'),
+(9, 'Jose', 'Lucumi', 'Bogota', 'CALLE 48 Q SUR #5C - 59', '3202607184'),
+(10, 'Jose', 'Lucumi', 'Bogota', 'CALLE 48 Q SUR #5C - 59', '3202607184'),
+(11, 'Jose', 'Lucumi', 'Bogota', 'CALLE 48 Q SUR #5C - 59', '3202607184'),
+(12, 'Jose', 'Lucumi', 'Bogota', 'CALLE 48 Q SUR #5C - 59', '3202607184'),
+(13, 'Jose', 'Lucumi', 'Bogota', 'CALLE 48 Q SUR #5C - 59', '3202607184'),
+(14, 'Alex', 'Lucumi', 'Bogota', 'CALLE 48 Q SUR #5C - 59', '3202601784');
 
 -- --------------------------------------------------------
 
@@ -136,7 +169,15 @@ CREATE TABLE `envios` (
 --
 
 INSERT INTO `envios` (`idEnvio`, `paquete`, `cliente`, `camion`, `destinatario`, `estado`) VALUES
-(1, 1, 1000353959, 1, 1, 'Reparto');
+(1, 2, 1000353959, 1, 2, 'Reparto'),
+(2, 3, 1000353959, 1, 3, 'Reparto'),
+(3, 4, 1000353959, 3, 4, 'Reparto'),
+(4, 8, 1000353959, 3, 8, 'Reparto'),
+(5, 9, 1, 3, 9, 'Reparto'),
+(6, 11, 1, NULL, 11, 'Recogido'),
+(7, 10, 1, 3, 10, 'Reparto'),
+(8, 12, 1, 3, 12, 'Reparto'),
+(9, 13, 1, 3, 13, 'Entregado');
 
 -- --------------------------------------------------------
 
@@ -159,10 +200,20 @@ CREATE TABLE `paquete` (
 --
 
 INSERT INTO `paquete` (`idpaquete`, `peso`, `altura`, `anchura`, `profundidad`, `precio`, `descripcion`) VALUES
-(1, 45, 20, 20, 20, 13500, 'hola'),
-(2, 45, 20, 20, 20, 13500, 'hola'),
-(3, 12, 10, 10, 10, 12000, 'yisus'),
-(4, 12, 10, 10, 10, 12000, 'yisus');
+(1, 66, 66, 66, 66, 66666, 'hola'),
+(2, 66, 66, 66, 66, 66666, 'hola'),
+(3, 5, 10, 12, 20, 9000, 'Tecnologia'),
+(4, 21, 11, 11, 11, 3000, 'Productos de belleza'),
+(5, 21, 11, 11, 11, 3000, 'Productos de belleza'),
+(6, 21, 11, 11, 11, 3000, 'Productos de belleza'),
+(7, 21, 11, 11, 11, 3000, 'Productos de belleza'),
+(8, 45, 10, 10, 10, 10, 'xd'),
+(9, 45, 20, 20, 20, 13500, 'xd'),
+(10, 45, 20, 20, 20, 13500, 'xd'),
+(11, 45, 20, 20, 20, 13500, 'xd'),
+(12, 45, 20, 20, 20, 13500, 'xd'),
+(13, 45, 20, 20, 20, 13500, 'xd'),
+(14, 45, 20, 20, 10, 13500, 'xd');
 
 -- --------------------------------------------------------
 
@@ -182,7 +233,7 @@ CREATE TABLE `solicitud` (
 --
 
 INSERT INTO `solicitud` (`idSolicitud`, `cliente`, `paquete`, `destinatario`) VALUES
-(1, 1000353959, 1, 1);
+(10, 1000353959, 14, 14);
 
 -- --------------------------------------------------------
 
@@ -203,8 +254,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`idUser`, `usuario`, `password`, `correo`, `permisos`) VALUES
-(23, 'alex', 'alex1234', 'alexmontanad@gmail.com', 4),
-(24, 'Juan', 'alex123', 'v@gmail.com', 4);
+(1, 'Alex', 'admin', 'alex9azul@gmail.com', 4),
+(2, 'admin', 'admin', 'admin@admin.com', 1),
+(4, 'maria123', 'maria123', '', 3),
+(7, 'juan123', 'juan123', 'juan@gmail.com', 2),
+(8, 'juan123', 'juan123', 'juan@gmail.com', 2),
+(9, 'juli123', 'juli123', 'juli@gmail.com', 2),
+(10, 'cliente1', 'cliente1', 'cliente1@gmail.com', 4);
 
 --
 -- Índices para tablas volcadas
@@ -221,7 +277,8 @@ ALTER TABLE `afiliado`
 -- Indices de la tabla `camion`
 --
 ALTER TABLE `camion`
-  ADD PRIMARY KEY (`idCamion`);
+  ADD PRIMARY KEY (`idCamion`),
+  ADD KEY `encargado` (`encargado`);
 
 --
 -- Indices de la tabla `clientes`
@@ -283,43 +340,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `afiliado`
 --
 ALTER TABLE `afiliado`
-  MODIFY `idAfiliado` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAfiliado` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `camion`
 --
 ALTER TABLE `camion`
-  MODIFY `idCamion` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idCamion` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `conductor`
 --
 ALTER TABLE `conductor`
-  MODIFY `idConductor` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `idConductor` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `destinatario`
 --
 ALTER TABLE `destinatario`
-  MODIFY `idDestinatario` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idDestinatario` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `envios`
 --
 ALTER TABLE `envios`
-  MODIFY `idEnvio` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idEnvio` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `paquete`
+--
+ALTER TABLE `paquete`
+  MODIFY `idpaquete` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-  MODIFY `idSolicitud` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idSolicitud` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idUser` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
@@ -330,6 +393,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `afiliado`
   ADD CONSTRAINT `afiliado_ibfk_1` FOREIGN KEY (`credenciales`) REFERENCES `users` (`idUser`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `camion`
+--
+ALTER TABLE `camion`
+  ADD CONSTRAINT `camion_ibfk_1` FOREIGN KEY (`encargado`) REFERENCES `conductor` (`idConductor`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `clientes`
@@ -349,17 +418,17 @@ ALTER TABLE `conductor`
 --
 ALTER TABLE `envios`
   ADD CONSTRAINT `envios_ibfk_1` FOREIGN KEY (`cliente`) REFERENCES `clientes` (`NIT`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `envios_ibfk_2` FOREIGN KEY (`paquete`) REFERENCES `paquete` (`idpaquete`) ON UPDATE CASCADE,
   ADD CONSTRAINT `envios_ibfk_3` FOREIGN KEY (`camion`) REFERENCES `camion` (`idCamion`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `envios_ibfk_4` FOREIGN KEY (`destinatario`) REFERENCES `destinatario` (`idDestinatario`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `envios_ibfk_4` FOREIGN KEY (`destinatario`) REFERENCES `destinatario` (`idDestinatario`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `envios_ibfk_5` FOREIGN KEY (`paquete`) REFERENCES `paquete` (`idpaquete`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
   ADD CONSTRAINT `solicitud_ibfk_1` FOREIGN KEY (`cliente`) REFERENCES `clientes` (`NIT`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `solicitud_ibfk_2` FOREIGN KEY (`paquete`) REFERENCES `paquete` (`idpaquete`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `solicitud_ibfk_3` FOREIGN KEY (`destinatario`) REFERENCES `destinatario` (`idDestinatario`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `solicitud_ibfk_3` FOREIGN KEY (`destinatario`) REFERENCES `destinatario` (`idDestinatario`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `solicitud_ibfk_4` FOREIGN KEY (`paquete`) REFERENCES `paquete` (`idpaquete`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

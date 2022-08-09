@@ -134,40 +134,23 @@
                 <span class="visually-hidden">Icon-only</span>
             </a>
             <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-                
-                
+
+
                 <li>
-                    <a href="./admin_paquetes.php" class="nav-link py-3 border-bottom rounded-0" title="Paquetes" data-bs-toggle="Paquetes"
-                        data-bs-placement="right">
+                    <a href="./vista_camion.php" class="nav-link py-3 border-bottom rounded-0" title="Camion"
+                        data-bs-toggle="Paquetes" data-bs-placement="right">
                         <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Paquetes">
-                            <use xlink:href="#paquete" />
+                            <use xlink:href="#camion" />
                         </svg>
                     </a>
                 </li>
-                <li>
-                    <a href="./vista_solicitudes.php" class="nav-link py-3 border-bottom rounded-0" title="Solicitudes" data-bs-toggle="Solicitudes"
-                        data-bs-placement="right">
-                        <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Solicitudes">
-                            <use xlink:href="#solicitudes" />
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="./vista_recogidos.php" class="nav-link py-3 border-bottom rounded-0" title="Envios" data-bs-toggle="Envios"
-                        data-bs-placement="right">
-                        <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Envios">
-                            <use xlink:href="#envios" />
-                        </svg>
-                    </a>
-                </li>
-                
             </ul>
             <div class="border-top">
                 <a href="../Controladores/controlador_users.php?accion=cerrar"
                     class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none">
                     <svg class="bi pe-none" width="40" height="40" role="img" aria-label="Volver">
-                            <use xlink:href="#volver" />
-                        </svg>
+                        <use xlink:href="#volver" />
+                    </svg>
                 </a>
             </div>
         </div>

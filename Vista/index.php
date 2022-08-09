@@ -10,20 +10,14 @@
 <?php require 'header.php';?>
 <body class="body">
 <section class="seccion.dos" id="seccion.dos">
-
     <div class="contenedor">
-
         <div class="contenedor_seccion1">
-
-
             <div class="contenedor_seccion1_imagentxt">
                 <div class="division_seccion1">
                     <div class="divisio1_imagen">
-
                         <img src="images/camion.png " class="imagen_camion">
                     </div>
                     <div class="division1_texto">
-
                         <div class="secion_titulo">
                             <h1 class="titulo"> Wold Express</h1>
                         </div>
@@ -50,5 +44,5 @@
         <a href="vista_registrocliente.php" class="boton_inicio" style="align-self:flex-start ;margin-left: 500px;"> REGISTRATE</a>
     </div>
 </section>
-</body>
 <?php require 'footer.php';?>
+</body>

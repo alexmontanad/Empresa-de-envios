@@ -48,7 +48,7 @@
 
     .bi {
         vertical-align: -.125em;
-        fill: currentColor;
+        fill: rgba(99, 0, 0, 1);
     }
 
     .nav-scroller {
@@ -133,7 +133,7 @@
         <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem;">
             <a href="#" class="d-block p-3 link-dark text-decoration-none" title="logo" data-bs-toggle="tooltip"
                 data-bs-placement="right">
-                <svg class="bi pe-none" width="40" height="40">
+                <svg class="pe-none" width="40" height="40">
                     <use xlink:href="#worldexpress" />
                 </svg>
                 <span class="visually-hidden">Icon-only</span>
@@ -191,7 +191,7 @@
             <div class="border-top">
                 <a href="../Controladores/controlador_users.php?accion=cerrar"
                     class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none">
-                    <svg class="bi pe-none" width="40" height="40" role="img" aria-label="Volver">
+                    <svg class="pe-none" width="40" height="40" role="img" aria-label="Volver">
                             <use xlink:href="#volver" />
                         </svg>
                 </a>

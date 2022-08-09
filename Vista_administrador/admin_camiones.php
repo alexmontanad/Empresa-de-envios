@@ -1,11 +1,12 @@
 <?php
 session_start();
 $varsession = $_SESSION['usuario'];
-if($varsession == null || $varsession = ''){
+if ($varsession == null || $varsession = '') {
     echo 'usted no tiene autorizacion';
     die();
 }
-include('../Modelo/cliente.php');
+include('../Modelo/camion.php');
+include('../Modelo/conductor.php');
 ?>
 <!doctype html>
 <html lang="es">
@@ -34,62 +35,16 @@ include('../Modelo/cliente.php');
                 </div>
             </div>
             <div class="card-body">
-                <form name="form" action="../Controladores/cliente_controlador.php" method="post">
+                <form name="form" action="../Controladores/controlador_camion.php" method="post">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="id">NIT</label>
-                            <input type="number" name="cedula" class="form-control" value=""
-                                placeholder="DIGITE EL CODIGO">
+                            <label for="id">PLACA</label>
+                            <input type="text" name="placa" class="form-control" value=""
+                                placeholder="DIGITE LA PLACA">
                         </div>
-                        <div class="col-md-6">
-                            <label for="n">CIUDAD</label>
-                            <input type="text" name="ciudad" class="form-control" value=""
-                                placeholder="DIGITE EL NOMBRE">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="a">NOMBRE</label>
-                            <input type="text" name="nombre" class="form-control" value=""
-                                placeholder="DIGITE EL APELLIDO">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="e">DEPARTAMENTO</label>
-                            <input type="text" name="departamento" class="form-control" value=""
-                                placeholder="DIGITE EL EMAIL">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="t">APELLIDO</label>
-                            <input type="text" name="apellido" class="form-control" value=""
-                                placeholder="DIGITE EL TELEFONO">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="id">DIRECCION</label>
-                            <input type="text" name="direccion" class="form-control" value=""
-                                placeholder="DIGITE EL CODIGO">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="n">CORREO</label>
-                            <input type="email" name="correo" class="form-control" value=""
-                                placeholder="DIGITE EL NOMBRE">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="a">CELULAR</label>
-                            <input type="text" name="celular" class="form-control" value=""
-                                placeholder="DIGITE EL APELLIDO">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="id">USUARIO</label>
-                            <input type="text" name="usuario" class="form-control" value=""
-                                placeholder="DIGITE EL CODIGO">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="n">CONTRASEÑA</label>
-                            <input type="text" name="contraseña" class="form-control" value=""
-                                placeholder="DIGITE EL NOMBRE">
-                        </div><br><br><br><br>
+                        <br><br><br><br>
                         <div class="col-md-8">
-                            <input type="button" name="accion" value="crear" class="btn btn-primary mb-3"
+                            <input type="submit" name="accion" value="crear" class="btn btn-primary mb-3"
                                 onclick="validar()">
                         </div>
                         <div class="col-md-4">
@@ -102,44 +57,42 @@ include('../Modelo/cliente.php');
         <!--fin DIV Prin-->
         <?php
   //crear el objeto de la clase Empleados
-  $cliente=new Cliente();
-  $reg=$cliente->ver();
-     ?>
+  $camion=new Camion();
+$reg=$camion->ver();
+?>
         <div class="table table-striped">
             <table class="table table-striped table-hover id=" table_id">
                 <thead>
-                    <th>NIT</th>
-                    <TH>NOMBRE</TH>
-                    <TH>APELLIDO</TH>
-                    <TH>DEPARTAMENTO</TH>
-                    <TH>CIUDAD</TH>
-                    <TH>DIRECCION</TH>
-                    <TH>CELULAR</TH>
+                    <th>ID</th>
+                    <TH>PLACA</TH>
+                    <TH>ENCARGADO</TH>
                     <TH>ACCION</TH>
                     </TR>
                 </thead>
                 <tbody>
                     <?php
-        for($i=0;$i<count($reg);$i++){
+   for ($i=0;$i<count($reg);$i++) {
+       $encargado=new Conductor();
+       if($reg[$i]['encargado'] == NULL || $reg[$i]['encargado'] == ''){
+        $responsable = $reg[$i]['encargado'];
+       }else{
+        $responsable=$encargado->get_conductor_id($reg[$i]['encargado']);
+        $responsable = $responsable[0]['nombre'];
+       }
        echo "<tr>
-       <td>".$reg[$i]['NIT']."</td>
-       <td>".$reg[$i]['nombre']."</td>
-       <td>".$reg[$i]['apellido']."</td>
-       <td>".$reg[$i]['departamento']."</td>
-       <td>".$reg[$i]['ciudad']."</td>
-       <td>".$reg[$i]['direccion']."</td>
-       <td>".$reg[$i]['celular']."</td>";
-       ?>
+       <td>".$reg[$i]['idCamion']."</td>
+       <td>".$reg[$i]['placa']."</td>
+       <td>".$responsable."</td>"; ?>
                     <td align='center'>
                         <button class="btn btn-warning"
-                            onclick=window.location="./admin_editclientes.php?id=<?php echo $reg[$i]['NIT'];?>">Editar</button>
+                            onclick=window.location="./admin_camionesEDIT.php?id=<?php echo $reg[$i]['idCamion']; ?>">Editar</button>
                         <button class="btn btn-danger" name="eliminar"
-                            onclick=window.location="../Controladores/cliente_controlador.php?accion=eliminar&id=<?php echo $reg[$i]['NIT'];?>">Eliminar</button>
+                            onclick=window.location="../Controladores/cliente_controlador.php?accion=eliminar&id=<?php echo $reg[$i]['idCamion']; ?>">Eliminar</button>
                     </td>
                     </tr>
                     <?php
-       }
-        ?>
+   }
+?>
                 </tbody>
             </table>
         </div>

@@ -70,10 +70,6 @@ include('../Modelo/camion.php');
        ?>
                 <td align='center'>
                     <input type="submit" class="btn btn-warning" name="accion" value="Asignar camion">
-                    <!--<button class="btn btn-danger"
-                        >
-                        <span class="material-icons">Eliminar solicitud</span>
-                    </button>-->
                 </td>
                 </tr>
                 <?php

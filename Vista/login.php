@@ -11,9 +11,7 @@
   <?php require 'header.php';?>
   <section class="seccion-tres">
    <div class="contenido_sec3_cliente">
-       <h1 class="titulo2_loginC"> Cliente</h1>
-     
-     
+       <h1 class="titulo2_loginC"> Cliente</h1>    
        <form action="../Controladores/controlador_users.php" method="post" class="form-login">
 		<ul class="login-nav">
 			<li class="login-nav__item active">
@@ -27,21 +25,12 @@
 		<input id="login-input-user" name="user" class="login__input" type="text" />
 		<label for="login-input-password"  style="color: black;" class="login__label">Password</label>
 		<input id="login-input-password" name="pass" class="login__input" type="password" />	
-		<input type="submit" class="boton_inicio" name="accion" value="ingresar">
-		
+		<input type="submit" class="boton_inicio" name="accion" value="ingresar">		
 	</form>
 		<a href="./Recuperar/Recuperar.php"  style="color: black;"class="login__forgot">Recordar contraseña</a>
 		<a href="index.php"  style="color: black;"class="login__forgot">Volver al inicio</a>
-		
-
-
-        </form>
-       
- 
-    
+        </form>  
    </div>
-
-
  </section>
   </body>
 </html>

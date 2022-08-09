@@ -26,7 +26,6 @@
                         <a href="vista_registrocliente.php">Registrar</a>
                     </li>
                 </ul>
-
                 <label for="fname" class="login__label">Nombre:</label>
                 <input type="text" name="nombre" placeholder="Nombre" class="login__input"><br>
                 <label for="fname" class="login__label">Apellido:</label>
@@ -53,12 +52,9 @@
                 <label for="fname" class="login__label">Contraseña:</label>
                 <input type="text" name="contraseña" placeholder="Contraseña" class="login__input"><br>
                 <input type="submit" name="accion" value="crear" class="boton_inicio">
-
             </form>
             <a href="./Recuperar/Recuperar.php" style="color: black;" class="login__forgot">Recordar contraseña</a>
             <a href="index.php" style="color: black;" class="login__forgot">Volver al inicio</a>
-
-
         </div>
     </section>
     <?php require 'footer.php';?>

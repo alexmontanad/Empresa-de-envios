@@ -26,6 +26,8 @@ if($varsession == null || $varsession = ''){
         <input type="text" name="nombredes" placeholder="Nombre_re" class="login__input"><br>
         <label for="fname">Apellido del destinatario:</label><br>
         <input type="text" name="apedes" placeholder="Nombre_re" class="login__input"><br>
+        <label for="fname">Numero de contacto:</label><br>
+        <input type="text" name="celular" placeholder="Nombre_re" class="login__input"><br>
         <label for="fname">Ciudad: </label><br>
         <select name="ciudad" class="login__input">
             <option value="Bogota">Bogota</option>

@@ -1,5 +1,4 @@
 <?php
-
 include_once('../Modelo/solicitud.php');
 include_once('../Modelo/envio.php');
 $accion = $_REQUEST['accion'];
@@ -16,14 +15,14 @@ switch ($accion) {
         $cliente = new Cliente();
         $cliente->eliminar($_GET['id']);
         break;
-    case 'Asignar camion':
+    case 'Actualizar estado':
         $envio = new envio();
-        $idcamion = $_REQUEST['camion'];
-        $envio->modificarestado($_REQUEST['id'], $idcamion, $_REQUEST['estado']);
-        header("Location: ../Vista_afiliados/vista_recogidos.php");
+        $envio->modificarestado($_REQUEST['id'], $_REQUEST['camion'], $_REQUEST['estado']);
+        header("Location: ../Vista_conductor/vista_camion.php");
         exit();
         break;
     case 'modificar':
 
         break;
 }
+?>

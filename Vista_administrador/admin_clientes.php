@@ -1,7 +1,7 @@
 <?php
 session_start();
 $varsession = $_SESSION['usuario'];
-if($varsession == null || $varsession = ''){
+if ($varsession == null || $varsession = '') {
     echo 'usted no tiene autorizacion';
     die();
 }
@@ -53,11 +53,6 @@ include('../Modelo/cliente.php');
                                 placeholder="DIGITE EL APELLIDO">
                         </div>
                         <div class="col-md-6">
-                            <label for="e">DEPARTAMENTO</label>
-                            <input type="text" name="departamento" class="form-control" value=""
-                                placeholder="DIGITE EL EMAIL">
-                        </div>
-                        <div class="col-md-6">
                             <label for="t">APELLIDO</label>
                             <input type="text" name="apellido" class="form-control" value=""
                                 placeholder="DIGITE EL TELEFONO">
@@ -103,15 +98,14 @@ include('../Modelo/cliente.php');
         <?php
   //crear el objeto de la clase Empleados
   $cliente=new Cliente();
-  $reg=$cliente->ver();
-     ?>
+$reg=$cliente->ver();
+?>
         <div class="table table-striped">
             <table class="table table-striped table-hover id=" table_id">
                 <thead>
                     <th>NIT</th>
                     <TH>NOMBRE</TH>
                     <TH>APELLIDO</TH>
-                    <TH>DEPARTAMENTO</TH>
                     <TH>CIUDAD</TH>
                     <TH>DIRECCION</TH>
                     <TH>CELULAR</TH>
@@ -120,26 +114,24 @@ include('../Modelo/cliente.php');
                 </thead>
                 <tbody>
                     <?php
-        for($i=0;$i<count($reg);$i++){
+   for ($i=0;$i<count($reg);$i++) {
        echo "<tr>
        <td>".$reg[$i]['NIT']."</td>
        <td>".$reg[$i]['nombre']."</td>
        <td>".$reg[$i]['apellido']."</td>
-       <td>".$reg[$i]['departamento']."</td>
        <td>".$reg[$i]['ciudad']."</td>
        <td>".$reg[$i]['direccion']."</td>
-       <td>".$reg[$i]['celular']."</td>";
-       ?>
+       <td>".$reg[$i]['celular']."</td>"; ?>
                     <td align='center'>
                         <button class="btn btn-warning"
-                            onclick=window.location="./admin_editclientes.php?id=<?php echo $reg[$i]['NIT'];?>">Editar</button>
+                            onclick=window.location="./admin_editclientes.php?id=<?php echo $reg[$i]['NIT']; ?>">Editar</button>
                         <button class="btn btn-danger" name="eliminar"
-                            onclick=window.location="../Controladores/cliente_controlador.php?accion=eliminar&id=<?php echo $reg[$i]['NIT'];?>">Eliminar</button>
+                            onclick=window.location="../Controladores/cliente_controlador.php?accion=eliminar&id=<?php echo $reg[$i]['NIT']; ?>">Eliminar</button>
                     </td>
                     </tr>
                     <?php
-       }
-        ?>
+   }
+?>
                 </tbody>
             </table>
         </div>

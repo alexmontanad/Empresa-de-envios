@@ -1,7 +1,7 @@
 <?php
 session_start();
 $varsession = $_SESSION['usuario'];
-if($varsession == null || $varsession = ''){
+if ($varsession == null || $varsession = '') {
     echo 'usted no tiene autorizacion';
     die();
 }
@@ -9,9 +9,9 @@ include('../Modelo/cliente.php');
 include('../Modelo/Usuario.php');
 $cliente= new Cliente();
 $usr= new Usuario();
-if(isset($_POST['grabar']) && $_POST['grabar'] == 'si'){
- $cliente->editemple($_POST['id'],$_POST['n'],$_POST['a'],$_POST['e'],$_POST['t']);
- exit();
+if (isset($_POST['grabar']) && $_POST['grabar'] == 'si') {
+    $cliente->editemple($_POST['id'], $_POST['n'], $_POST['a'], $_POST['e'], $_POST['t']);
+    exit();
 }
 //llamar la funcion ver empleados
 $reg=$cliente->get_cliente_id($_GET['id']);
@@ -56,11 +56,6 @@ $reguser=$usr->get_user_id($reg[0]['credenciales']);
                             <label for="a">NOMBRE</label>
                             <input type="text" name="nombre" class="form-control"
                                 value="<?php echo $reg[0]['nombre'];?>" placeholder="DIGITE EL APELLIDO">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="e">DEPARTAMENTO</label>
-                            <input type="text" name="departamento" class="form-control"
-                                value="<?php echo $reg[0]['departamento'];?>" placeholder="DIGITE EL EMAIL">
                         </div>
                         <div class="col-md-6">
                             <label for="t">APELLIDO</label>

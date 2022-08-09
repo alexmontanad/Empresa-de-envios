@@ -7,7 +7,7 @@ switch ($accion) {
     case 'Crear afiliado':
         $afiliado = new Afiliado();
         $usuario = new usuario();
-        $credenciales = $usuario->crear_getID($_REQUEST['usuario'],$_REQUEST['contraseña'],$_REQUEST['correo'],2);
+        $credenciales = $usuario->crear_getID($_REQUEST['usuario'],$_REQUEST['contraseña'],$_REQUEST['correo'],3);
         $afiliado->crear($_REQUEST['cedula'],$_REQUEST['nombre'],$_REQUEST['apellido'],$credenciales);
         header("Location: ../Vista_administrador/admin_empleados.php");
         exit();

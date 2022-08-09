@@ -18,7 +18,7 @@ switch ($accion) {
         $usuario = new usuario();
         $cliente->modificar($_REQUEST['cedula'],$_REQUEST['nombre'],$_REQUEST['apellido'],$_REQUEST['ciudad'],$_REQUEST['direccion'],$_REQUEST['celular']);
         $usuario->modificar($_REQUEST['idusr'],$_REQUEST['usuario'],$_REQUEST['password'],$_REQUEST['correo']);
-        header("Location: ../Vista/admin_clientes.php");
+        header("Location: ../Vista_administrador/admin_clientes.php");
         exit();
         break;
 }
